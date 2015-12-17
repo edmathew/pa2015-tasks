@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="type" name="Task Type" schema="schema/type.exsd"/>
+   <extension-point id="provider" name="Task Provider" schema="schema/provider.exsd"/>
+   <extension
+         id="tasksTable"
+         name="Tasks"
+         point="pt.iscte.pidesco.view">
+      <view
+            class="pa.iscde.tasks.gui.view.TableView">
+      </view>
+   </extension>
+   <extension
+         id="refreshTool"
+         name="Refresh"
+         point="pt.iscte.pidesco.tool">
+      <tool
+            class="pa.iscde.tasks.control.tools.TasksRefreshTool"
+            description="Refreshes the table"
+            hasState="false"
+            icon="refresh.gif"
+            view="pa.iscde.tasks.tasksTable">
+      </tool>
+   </extension>
+
+</plugin>
