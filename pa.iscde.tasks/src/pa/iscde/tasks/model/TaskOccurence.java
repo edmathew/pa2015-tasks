@@ -1,8 +1,8 @@
 package pa.iscde.tasks.model;
 
-import pa.iscde.tasks.extensibility.TaskType;
+import pa.iscde.tasks.extensibility.ITaskType;
 
-public class TaskOccurence implements pa.iscde.tasks.extensibility.Task {
+public class TaskOccurence implements pa.iscde.tasks.extensibility.ITask {
 
 	private final Task task;
 	private final String filename;
@@ -27,7 +27,7 @@ public class TaskOccurence implements pa.iscde.tasks.extensibility.Task {
 	}
 
 	@Override
-	public TaskType getType() {
+	public ITaskType getType() {
 		return task.getType();
 	}
 

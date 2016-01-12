@@ -4,6 +4,8 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
+import extensionpoints.ISearchEvent;
+import pa.iscde.tasks.integration.TaskSearch;
 import pt.iscte.pidesco.extensibility.PidescoServices;
 import pt.iscte.pidesco.javaeditor.service.JavaEditorServices;
 import pt.iscte.pidesco.projectbrowser.service.ProjectBrowserServices;
@@ -13,6 +15,9 @@ public class TasksActivator implements BundleActivator {
 	private static PidescoServices pidescoServices;
 	private static ProjectBrowserServices browserServices;
 	private static JavaEditorServices editorServices;
+	private static ISearchEvent deepSearchServices;
+	
+	private static TaskSearch ts;
 
 	@Override
 	public void start(BundleContext context) throws Exception {
@@ -21,6 +26,12 @@ public class TasksActivator implements BundleActivator {
 
 		initProjectBrowserServices(context);
 		initEditorServices(context);
+		initDeepSearchServices(context);
+		
+		
+		//Start listing to Search Events... Should't be in this class...
+		ts = new TaskSearch();
+		ts.start();
 	}
 
 	private void initProjectBrowserServices(final BundleContext context) {
@@ -32,7 +43,13 @@ public class TasksActivator implements BundleActivator {
 		final ServiceReference<JavaEditorServices> ref = context.getServiceReference(JavaEditorServices.class);
 		editorServices = context.getService(ref);
 	}
-
+	
+	private void initDeepSearchServices(final BundleContext context) {
+		final ServiceReference<ISearchEvent> ref = context.getServiceReference(ISearchEvent.class);
+		deepSearchServices = context.getService(ref);
+		
+	}
+	
 	@Override
 	public void stop(BundleContext context) throws Exception {
 		// TODO Auto-generated method stub
@@ -49,6 +66,10 @@ public class TasksActivator implements BundleActivator {
 	
 	public static JavaEditorServices getJavaEditorServices() {
 		return editorServices;
+	}
+	
+	public static ISearchEvent getDeepSearchServices() {
+		return deepSearchServices;
 	}
 
 }

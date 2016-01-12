@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import pa.iscde.tasks.extensibility.TaskType;
+import pa.iscde.tasks.extensibility.ITaskType;
 import pa.iscde.tasks.model.Task;
 import pa.iscde.tasks.model.Task.PRIORITY;
 import pa.iscde.tasks.model.type.InternalTaskTypeProvider;
@@ -30,7 +30,7 @@ public class TaskExtractor {
 		final Matcher m = taskRegex.matcher(text);
 		while (m.find()) {
 
-			final TaskType type = InternalTaskTypeProvider.getTaskType(m.group(1));
+			final ITaskType type = InternalTaskTypeProvider.getTaskType(m.group(1));
 			final PRIORITY priority = PRIORITY.valueOf(m.group(2));
 			final String msg = m.group(3);
             

@@ -8,7 +8,8 @@
          name="Tasks"
          point="pt.iscte.pidesco.view">
       <view
-            class="pa.iscde.tasks.gui.view.TableView">
+            class="pa.iscde.tasks.gui.view.TableView"
+            icon="task.gif">
       </view>
    </extension>
    <extension
@@ -22,6 +23,21 @@
             icon="refresh.gif"
             view="pa.iscde.tasks.tasksTable">
       </tool>
+   </extension>
+   <extension
+         id="MetricExport"
+         name="Export"
+         point="pa.iscde.metrixexport">
+      <item
+            class="pa.iscde.tasks.integration.MetricExport">
+      </item>
+   </extension>
+   <extension
+         id="MetricAdd"
+         name="Add"
+         point="pa.iscde.addmetricext">
+      <item
+            class="pa.iscde.tasks.integration.Metric"></item>
    </extension>
 
 </plugin>

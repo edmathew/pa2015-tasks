@@ -1,6 +1,6 @@
 package pa.iscde.tasks.model;
 
-import pa.iscde.tasks.extensibility.TaskType;
+import pa.iscde.tasks.extensibility.ITaskType;
 
 public class Task {
 
@@ -10,14 +10,14 @@ public class Task {
 
 	private final PRIORITY priority;
 	
-	private final TaskType type;
+	private final ITaskType type;
 	private final String msg;
 
 	public PRIORITY getPriority() {
 		return priority;
 	}
 
-	public TaskType getType() {
+	public ITaskType getType() {
 		return type;
 	}
 
@@ -26,7 +26,7 @@ public class Task {
 	}
 
 	// Constructors...
-	public Task(PRIORITY priority, TaskType type, String msg) {
+	public Task(PRIORITY priority, ITaskType type, String msg) {
 		this.priority = priority;
 		this.type = type;
 		this.msg = msg;

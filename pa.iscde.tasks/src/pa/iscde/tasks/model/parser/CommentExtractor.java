@@ -11,7 +11,7 @@ import org.eclipse.jdt.core.dom.Comment;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.LineComment;
 
-import pa.iscde.tasks.extensibility.Task;
+import pa.iscde.tasks.extensibility.ITask;
 import pa.iscde.tasks.model.TaskOccurence;
 
 /**
@@ -31,8 +31,9 @@ public class CommentExtractor {
 		this.absFileName = absFileName;
 	}
 
-	public List<Task> getCommentDetails() {
-		final List<Task> occList = new ArrayList<>();
+	@SuppressWarnings("unchecked")
+	public List<ITask> getCommentDetails() {
+		final List<ITask> occList = new ArrayList<>();
 		final ASTParser parser = ASTParser.newParser(AST.JLS8);
 		parser.setSource(srcText.toCharArray());
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
@@ -55,10 +56,10 @@ public class CommentExtractor {
 	 */
 	private class CommentVisitor extends ASTVisitor {
 
-		private final List<Task> occList;
+		private final List<ITask> occList;
 		private final CompilationUnit unit;
 
-		public CommentVisitor(List<Task> occList, CompilationUnit unit) {
+		public CommentVisitor(List<ITask> occList, CompilationUnit unit) {
 			this.occList = occList;
 			this.unit = unit;
 		}
