@@ -1,6 +1,5 @@
 package pa.iscde.tasks.model;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,11 +15,6 @@ import pt.iscte.pidesco.projectbrowser.model.PackageElement;
 import pt.iscte.pidesco.projectbrowser.model.SourceElement;
 
 public class TaskProvider implements ITaskProvider {
-
-	@Override
-	public void performAction(ITask task) {
-		TasksActivator.getJavaEditorServices().openFile(new File(task.getAbsolutePath()));
-	}	
 	
 	@Override
 	public List<ITask> getTasks() {

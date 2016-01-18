@@ -6,7 +6,7 @@
          <meta.schema plugin="pa.iscde.tasks" id="provider" name="Task Provider"/>
       </appinfo>
       <documentation>
-         [Enter description of this extension point.]
+         Add one task directly.
       </documentation>
    </annotation>
 
@@ -52,7 +52,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":pa.iscde.tasks.extensibility.TaskProvider"/>
+                  <meta.attribute kind="java" basedOn=":pa.iscde.tasks.extensibility.ITaskProvider"/>
                </appinfo>
             </annotation>
          </attribute>
@@ -73,7 +73,7 @@
          <meta.section type="examples"/>
       </appinfo>
       <documentation>
-         [Enter extension point usage example here.]
+         To view examples and find more information go to : https://github.com/edmathew/pa2015-tasks
       </documentation>
    </annotation>
 
@@ -82,7 +82,7 @@
          <meta.section type="apiinfo"/>
       </appinfo>
       <documentation>
-         [Enter API information here.]
+         To view examples and find more information go to : https://github.com/edmathew/pa2015-tasks
       </documentation>
    </annotation>
 

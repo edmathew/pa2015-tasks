@@ -74,9 +74,6 @@ public enum ModelProvider {
 	}
 
 	public void performActionFromTaskProvider(ITask task) {
-		ITaskProvider tp = findProvider(task);
-		if (tp != null) {
-			tp.performAction(task);
-		}
+		task.getType().performAction(task);
 	}
 }

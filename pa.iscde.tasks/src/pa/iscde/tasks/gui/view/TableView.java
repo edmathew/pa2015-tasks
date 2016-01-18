@@ -151,7 +151,7 @@ public class TableView implements PidescoView {
 		createColumn(taskView, HEADER_ARRAY[4], BOUNDS_ARRAY[4], 4).setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
-				return ((ITask) element).getLineNo().toString();
+				return ((ITask) element).getLineNo() == 0 ? "" : ((ITask) element).getLineNo().toString();
 			}
 		});
 

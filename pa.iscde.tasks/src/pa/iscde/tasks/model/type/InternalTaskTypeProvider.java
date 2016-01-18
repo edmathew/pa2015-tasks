@@ -1,5 +1,6 @@
 package pa.iscde.tasks.model.type;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,6 +12,8 @@ import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 
+import pa.iscde.tasks.control.TasksActivator;
+import pa.iscde.tasks.extensibility.ITask;
 import pa.iscde.tasks.extensibility.ITaskType;
 
 public class InternalTaskTypeProvider {
@@ -47,6 +50,11 @@ public class InternalTaskTypeProvider {
 			String path = "/images/" + getType() + ".png";
 			InputStream istream = getClass().getResourceAsStream(path);
 			return istream;
+		}
+
+		@Override
+		public void performAction(ITask task) {
+			TasksActivator.getJavaEditorServices().openFile(new File(task.getAbsolutePath()));
 		}
 	}
 

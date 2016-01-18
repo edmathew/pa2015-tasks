@@ -6,7 +6,7 @@
          <meta.schema plugin="pa.iscde.tasks" id="pa.iscde.tasks.type" name="Task Type"/>
       </appinfo>
       <documentation>
-         [Enter description of this extension point.]
+         Define new type of tasks
       </documentation>
    </annotation>
 
@@ -17,6 +17,9 @@
          </appinfo>
       </annotation>
       <complexType>
+         <sequence>
+            <element ref="task" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
                <documentation>
@@ -73,7 +76,7 @@
          <meta.section type="examples"/>
       </appinfo>
       <documentation>
-         [Enter extension point usage example here.]
+         To view examples and find more information go to : https://github.com/edmathew/pa2015-tasks
       </documentation>
    </annotation>
 
@@ -82,7 +85,7 @@
          <meta.section type="apiinfo"/>
       </appinfo>
       <documentation>
-         [Enter API information here.]
+         To view examples and find more information go to : https://github.com/edmathew/pa2015-tasks
       </documentation>
    </annotation>
 
